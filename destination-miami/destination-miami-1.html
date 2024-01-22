@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Airport Page</title>
+    <style>
+        body {
+            text-align: center;
+            background-color: white;
+            color: #333; /* Setting a default text color */
+            margin: 0; /* Resetting default margin */
+            font-family: Arial, sans-serif; /* Adding a default font */
+            min-height: 100vh; /* Setting minimum height to 100% of the viewport height */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: black;
+            padding: 10px 100px;
+            background-color: #f2f2f2; /* Adding a light background color to navbar */
+        }
+
+        .navbar a {
+            color: black;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .title {
+            margin-left: 10px; /* Adjusting margin for title next to logo */
+        }
+
+        h1 {
+            color: #333; /* Setting a default text color for h1 */
+        }
+
+        table {
+            margin: 20px auto; /* Centering the table on the page */
+            border-collapse: collapse;
+            width: 50%;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2; /* Adding a light background color to header cells */
+        }
+
+        footer {
+            background-color: #f2f2f2;
+            padding: 10px 100px;
+            margin-top: auto; /* Pushing the footer to the bottom */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .footer-logo img {
+            width: 50px; /* Set the width of the logo as needed */
+            height: auto; /* Maintain aspect ratio */
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <div class="logo">
+            <img src="image/logo.png" alt="Mini Logo">
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">Flights</a>
+            <a href="#">Services</a>
+            <a href="#">Contact</a>
+        </div>
+    </div>
+
+    <h1>Welcome on board</h1>
+    <table>
+        <tr>
+            <th>Information</th>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>From</td>
+            <td>ESGI-International-Airport</td>
+        </tr>
+        <tr>
+            <td>To</td>
+            <td>Miami-USA-Airport</td>
+        </tr>
+        <tr>
+            <td>Number of passengers</td>
+            <td>0 humains being</td>
+        </tr>
+        <tr>
+            <td>Hours of flying</td>
+            <td>1H45</td>
+        </tr>
+        <tr>
+            <td>Date</td>
+            <td>10 JAN 2024</td>
+        </tr>
+        <tr>
+            <td>Pilot</td>
+            <td><strong>Catalina</strong></td>
+        </tr>
+        <tr>
+            <td>Comments</td>
+            <td>First flight for test</td>
+        </tr>
+    </table>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-logo">
+            <img src="image/logo.png" alt="Footer Logo">
+        </div>
+        <div class="contact-details">
+            <p>Contact us: support@esgi-international-airport.fr </p>
+            <p>Phone number : +33 12 34 56 78 </p>
+        </div>
+        <div class="copyright">
+            &copy; 2024 ESGI International Airport
+        </div>
+    </footer>
+</body>
+</html>
