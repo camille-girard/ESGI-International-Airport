@@ -3,11 +3,29 @@ run-name: GitHub Actions 🚀
 on:
   push:
     branches:
+      - 'main'
+      - 'develop'
       - 'feature/**'
+      - 'fix/**'
+  pull_request:
+    branches:
+      - 'main'
+      - 'develop'
+      - 'feature/**'
+      - 'fix/**'
 jobs:
-  test_trigger:
-    runs-on: ubuntu-latest
+  comment:
+    runs-on: self-hosted
     steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "🐧 This job is now running on a ${{ runner.os }} server hosted by GitHub!"
-      - run: echo "🔎 The name of your branch is ${{ github.ref }} and your repository is ${{ github.repository }}."
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Create comment
+        uses: camille-girard/create-or-update-comment@v1
+        with:
+          token: *{{ secrets.REPO_TOKEN }}
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            Ceci est un commentaire automatisé pour signaler qu'un push a été effectué.
+            Commit: ${{ github.sha }}
+            Push effectué par: @${{ github.actor }}
