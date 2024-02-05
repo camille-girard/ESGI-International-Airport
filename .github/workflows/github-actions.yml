@@ -17,15 +17,4 @@ jobs:
   comment:
     runs-on: self-hosted
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Create comment
-        uses: camille-girard/create-or-update-comment@v1
-        with:
-          token: *{{ secrets.REPO_TOKEN }}
-          issue-number: ${{ github.event.issue.number }}
-          body: |
-            Ceci est un commentaire automatisé pour signaler qu'un push a été effectué.
-            Commit: ${{ github.sha }}
-            Push effectué par: @${{ github.actor }}
+      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
