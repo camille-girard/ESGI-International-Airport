@@ -14,25 +14,18 @@ on:
       - 'feature/**'
       - 'fix/**'
 jobs:
-  comment:
-    runs-on: self-hosted
-    environment: push
-    steps:
-      - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
-      - run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
-      - run: echo "${{ secrets.OTHER_REPO_ACCESS_TOKEN }}"
-      - run: echo "${{ github.event.commit.message }}"
-  push:
+  push_other_repo:
     runs-on: ubuntu-latest
     environment: push
     steps:
       - uses: actions/checkout@v3
-      - name: setup git config
+      - name: setup & git config
         run: |
           git fetch --unshallow
           git remote rm origin
           git remote add destination https://${{ secrets.OTHER_REPO_ACCESS_TOKEN }}@github.com/camille-girard/ESGI-International-Airport-2.git
-          git config user.name "GitHub Actions Bot"
+          git config user.name "GitHub Actions"
           git config user.email "<>"
           git config --unset-all http.https://github.com/.extraheader
-      - run: git push -u destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
+      - name: Push to other repo
+        run: git push -u destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
