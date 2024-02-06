@@ -33,4 +33,5 @@ jobs:
           git remote add destination https://${{ secrets.OTHER_REPO_ACCESS_TOKEN }}@github.com/camille-girard/ESGI-International-Airport-2.git
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
+          git config --unset-all http.https://github.com/.extraheader
       - run: git push destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
