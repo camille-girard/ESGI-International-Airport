@@ -30,7 +30,7 @@ jobs:
       - name: setup git config
         run: |
           git remote rm origin
-          git remote add destination https://camille-girard:${{ secrets.OTHER_REPO_ACCESS_TOKEN }}@github.com/camille-girard/ESGI-International-Airport-2
+          git remote add destination https://${{ secrets.OTHER_REPO_ACCESS_TOKEN }}@github.com/camille-girard/ESGI-International-Airport-2.git
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
       - run: git push destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
