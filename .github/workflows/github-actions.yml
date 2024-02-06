@@ -18,3 +18,17 @@ jobs:
     runs-on: self-hosted
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
+      - run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+  push:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          repository: ESGI-International-Airport-2
+          ref: 'main'
+          token: ${{ secrets.OTHER_REPO_KEY }}
+      - name: setup git config
+        run: |
+          git config user.name "GitHub Actions Bot"
+          git config user.email "<>"
+      - run: git push --force origin ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
