@@ -21,6 +21,7 @@ jobs:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
       - run: echo "${{ secrets.OTHER_REPO_ACCESS_TOKEN }}"
+      - run: echo "${{ github.event.commit.message }}"
   push:
     runs-on: ubuntu-latest
     environment: push
@@ -34,4 +35,7 @@ jobs:
         run: |
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
+          git checkout -b ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+          git add .
+          git commit -m "${{ github.event.commit.message }}"
       - run: git push --force origin ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
