@@ -19,7 +19,7 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
-      - run: echo "${{ secrets.OTHER_REPO_KEY }}"
+      - run: echo "${{ secrets.OTHER_REPO_ACCESS_TOKEN }}"
   push:
     runs-on: ubuntu-latest
     steps:
@@ -27,7 +27,7 @@ jobs:
         with:
           repository: camille-girard/ESGI-International-Airport-2
           ref: 'main'
-          token: ${{ secrets.OTHER_REPO_KEY }}
+          token: ${{ secrets.OTHER_REPO_ACCESS_TOKEN }}
       - name: setup git config
         run: |
           git config user.name "GitHub Actions Bot"
