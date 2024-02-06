@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: ESGI-International-Airport-2
+          repository: camille-girard/ESGI-International-Airport-2
           ref: 'main'
           token: ${{ secrets.OTHER_REPO_KEY }}
       - name: setup git config
