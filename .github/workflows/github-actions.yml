@@ -35,4 +35,4 @@ jobs:
           git config user.email "<>"
           git config --unset-all http.https://github.com/.extraheader
           git fetch --all --unshallow
-      - run: git push destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
+      - run: git push -u destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
