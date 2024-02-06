@@ -27,23 +27,10 @@ jobs:
     environment: push
     steps:
       - uses: actions/checkout@v3
-        with:
-          repository: camille-girard/ESGI-International-Airport-2
-          ref: 'main'
-          token: ${{ secrets.OTHER_REPO_ACCESS_TOKEN }}
-      - name: Obtenir la liste des fichiers modifiés
-        id: files
-        run: echo "::set-output name=modified_files::$(git diff-tree --no-commit-id --name-only -r HEAD)"
-
       - name: setup git config
         run: |
+          git remote rm origin
+          git remote add destination https://camille-girard:${{ secrets.OTHER_REPO_ACCESS_TOKEN }}@github.com/camille-girard/ESGI-International-Airport-2
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
-          git checkout -b ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
-          for file in ${{ steps.files.outputs.modified_files }}; do
-          echo "Fichier modifié: $file"
-          cat "$file" # Afficher le contenu du fichier
-          git add $file
-          done
-          git commit -m "${{ github.event.commit.message }}"
-      - run: git push --force origin ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}
+      - run: git push destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
