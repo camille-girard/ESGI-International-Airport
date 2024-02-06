@@ -34,5 +34,5 @@ jobs:
           git config user.name "GitHub Actions Bot"
           git config user.email "<>"
           git config --unset-all http.https://github.com/.extraheader
-          git fetch --unshallow
-      - run: git push destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --no-thin --force
+          git fetch --all --unshallow
+      - run: git push destination ${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}} --force
