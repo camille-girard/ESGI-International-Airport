@@ -19,6 +19,7 @@ jobs:
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
       - run: echo "branch=${GITHUB_HEAD_REF:-${GITHUB_REF#refs/heads/}}"
+      - run: echo "${{ secrets.OTHER_REPO_KEY }}"
   push:
     runs-on: ubuntu-latest
     steps:
