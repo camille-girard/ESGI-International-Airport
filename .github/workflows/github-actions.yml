@@ -7,12 +7,6 @@ on:
       - 'develop'
       - 'feature/**'
       - 'fix/**'
-  pull_request:
-    branches:
-      - 'main'
-      - 'develop'
-      - 'feature/**'
-      - 'fix/**'
 jobs:
   push_other_repo:
     runs-on: ubuntu-latest
