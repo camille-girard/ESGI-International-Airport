@@ -1,10 +1,10 @@
----
+
 name: Pull Request
-about: Create a PR 
+about: Create a PR
 title: 'PR - [Name of the ticket]'
 labels: ''
 assignees: ''
----
+
 
 ## Make sure that all these bosed are checked before the PR :
 
