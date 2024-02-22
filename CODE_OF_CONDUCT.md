@@ -1,4 +1,4 @@
-# Code de Conduite du Projet [Nom de Votre Projet]
+# Code de Conduite du Projet ESGI-International-Airport
 
 ## Objectif
 
@@ -27,7 +27,7 @@ Ce Code de Conduite s'applique dans tous les espaces liés au projet ESGI-Intern
 
 ## Signalement des Violations
 
-Les violations de ce Code de Conduite peuvent être signalées en contactant [insérer ici le nom ou l'adresse e-mail d'une personne de confiance du projet]. Toutes les plaintes seront examinées et étudiées de manière confidentielle. Les membres du projet sont tenus de respecter la confidentialité de la personne qui signale une violation.
+Les violations de ce Code de Conduite peuvent être signalées en contactant support@esgi-international-airport.fr . Toutes les plaintes seront examinées et étudiées de manière confidentielle. Les membres du projet sont tenus de respecter la confidentialité de la personne qui signale une violation.
 
 ## Attribution
 
